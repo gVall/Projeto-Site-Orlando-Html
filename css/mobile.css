@@ -1,0 +1,75 @@
+/*Tamanho padrão para tablets*/
+@media only screen and (max-width: 768px) {
+	.header-black ul {
+		display: none;
+	}
+}
+/*Tamanho padrão para smartphones*/
+@media only screen and (max-width: 480px) {
+	.header-black ul {
+		display: none;
+	}
+	#menu{
+		display: none;
+	}
+
+	#logotipo {
+		left: 32%;
+	}
+
+	#btn-bars, #btn-search{
+		color: #fff;
+		font-size: 22px;
+		position: absolute;
+		top: 4px;
+		background: none;
+		border: none;
+		display: block;
+	}
+
+	#btn-bars{
+		left: 4px;
+	}
+
+	#btn-search{
+		right: 4px;
+	}
+
+	#banner {
+		height: 377px;
+	}
+
+	#banner h1 {
+		top: 143px;
+		font-size: 40px;
+	}
+
+	#banner h1 small {
+		font-size: 22px;
+	}
+
+	#news {
+		top: -176px;
+	}
+
+	#news h2 {
+		font-size: 32px;
+	}
+
+	#news hr {
+		border-width: 4px;
+		top: 10px;
+	}
+
+	.owl-carousel .owl-wrapper-outer {
+		margin-left: 15px;
+	}
+
+	.thumbnails {
+		text-align: center;
+	}
+
+	#news .thumbnails .item-inner img {
+		align-self: center;
+	}
+}
