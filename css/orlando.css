@@ -338,36 +338,36 @@ header #logotipo{
 	max-width: 400px;
 }
 
-
 footer {
 	margin-top: 110px;
 }
 
 footer .row {
 	width: 100%;
+	margin-left: 0;
+
 }
 
-footer .row p{
+footer .row p {
 	line-height: 64px;
 	margin-bottom: 0;
 }
 
-footer .row-cinza-claro{
-	height: 200px;
+footer .row-cinza-claro {
+	height: 240px;
 	background-color: #171F26;
-
 }
 
-footer .row-cinza-escuro{
-	height: 69px;
+footer .row-cinza-escuro {
+	height: 60px;
 	background-color: #11171D;
 	border-top: #242D37 1px solid;
-}	
+}
 
 footer .float-left {
-	color: #666;
 	font-family: 'OpenSans';
 	font-size: 16px;
+	color: #666;
 }
 
 footer .text-roxo {
@@ -377,32 +377,24 @@ footer .text-roxo {
 	font-size: 14px;
 }
 
+
+
 footer .logotipo {
-	margin-top: 28px;
+	margin-top: 25px;
 }
 
-footer .desespero{
-	margin-left: 24px;
-}
-
-
-footer .col-popular-post {
-	margin-top: -141px;
-}
-footer .col-links { 
-	margin-top: -141px;
-}
+footer .col-popular-post,
+footer .col-links,
 footer .col-get-in-touch {
-	margin-top: -141px;
+	margin-top: 40px;
 }
+
 footer .row-cols h4 {
-	position: relative;
 	font-family: 'OpenSans';
-	font-size: 20px;
-	color: #FFF;
+	font-size: 16px;
+	color: #fff;
 	padding-bottom: 17px;
-	border-bottom: #242D37 1px solid;
-	left: 500px;
+	border-bottom: #242D37 1px solid;	
 }
 
 footer .row-cols h5 {
@@ -410,74 +402,54 @@ footer .row-cols h5 {
 	font-family: Arial;
 	font-size: 14px;
 	margin-bottom: 0;
-	position: relative;
-	left: 450px;
 }
 
 footer .row-cols time {
 	color: #FDE092;
 	font-family: Arial;
 	font-size: 14px;
-	position: relative;
-	left: 450px;
-}
+} 
 
-footer .col-links h4 {
-	position: relative;
-	left: 900px;
-	top: -16px;
-}
-
-footer .col-links a {
+footer .col-links a,
+footer .col-get-in-touch a {
 	color: #FFF;
 	font-family: Arial;
 	font-size: 14px;
-	position: relative;
-	left: 900px;
-	top: -14px;
 }
+
 footer .col-links .fa {
 	margin: 0 6px;
 }
 
-footer .col-get-in-touch h4 {
-	position: relative;
-	left: 1300px;
-	top: -10px;
-}
-
 footer .col-get-in-touch address {
-	color:#666;
-	position: relative;
+	color: #666;
 	font-family: Arial;
 	font-size: 14px;
-	margin-bottom: 6px;
-	left: 1300px;
+	margin-bottom: 0;
 }
+
 footer .col-get-in-touch address span {
 	display: inline-block;
 }
 
 footer .col-get-in-touch address i {
 	position: relative;
-	top: -18px;
+	top: -14px;
 }
+
 
 footer .col-get-in-touch i {
 	color: #9B9B9B;
 	font-size: 20px;
 	margin: 0 6px;
-
-}
-
-footer .col-get-in-touch a {
-	color: #666;
-	position: relative;
-	left: 1300px;
 }
 
 footer .col-get-in-touch p {
 	line-height: 20px;
+}
+
+footer .col-get-in-touch a{
+	color: #666;
 }
 
 footer .list-socials {
@@ -505,6 +477,225 @@ video {
 	width: 100%;
 }
 
-#btn-bars, #btn-search {
+#btn-bars, #btn-search,
+#btn-news-prev, #btn-news-next {
 	display: none;
+}
+
+/* shop */
+
+.text-arial-cinza {
+	font-family: arial;
+	font-size: 12px;
+	color: #666;
+}
+
+.text-roxo {
+	color: #6E3EA4;
+}
+#destaque-produtos {
+	margin: 30px auto;
+
+}
+
+#destaque-produtos .item{
+	display: inline-block;
+}
+
+#destaque-produtos-container {
+	position: relative;
+	top: -66px;
+}
+
+#destaque-produtos .col-imagem {
+	text-align: center;
+	top: ¨50px;
+	
+}
+
+#destaque-produtos .col-imagem img {
+	max-width: 100%;
+	max-height: 250px;
+}
+
+#destaque-produtos .col-descricao {
+	float: right;
+	top: -300px;
+}
+
+#destaque-produtos .col-descricao h2 {
+	font-family: arial;
+	font-size: 30px;
+	color: #666;
+	margin-bottom: 10px;
+}
+
+#destaque-produtos .col-descricao .box-valor {
+	width: 100%;
+	position: relative;
+}
+
+#destaque-produtos .col-descricao .box-valor .text-reais {
+	font-size: 28px;
+	font-weight: bold;
+	position: absolute;
+	top: 13px;
+	left: 41px;
+}
+
+#destaque-produtos .col-descricao .box-valor .text-valor {
+	font-size: 60px;
+	position: absolute;
+	top: -17px;
+	left: 85px;
+}
+
+#destaque-produtos .col-descricao .box-valor .text-valor-centavos {
+	font-size: 40px;
+	position: absolute;
+	top: -30px;
+    left: 230px;
+}
+
+#destaque-produtos .col-descricao .btn-comprar {
+	font-size: 36px;
+	padding: 1px 0;
+	position: relative;
+    bottom: -12px;
+}
+
+#destaque-produtos .col-descricao .btn-comprar .fa {
+	font-size: 34px;
+}
+
+#destaque-produtos .col-descricao .text-parcelas {
+	margin-top: 25px;
+}
+
+#btn-destaque-prev {
+	position: absolute;
+	top: 236px;
+    left: -29px;
+	background: none;
+	border: none;
+	font-size: 64px;
+	color: #2A2A2A;
+	outline: 0;
+	
+}
+
+#btn-destaque-next {
+	position: absolute;
+	top: 236px;
+	right: 0;
+	background: none;
+	border: none;
+	font-size: 64px;
+	color: #2A2A2A;
+	outline: 0;
+}
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+    margin-top: 10px;
+    top: -102px;
+    position: relative;
+}
+
+#promocoes {
+	top: -100px;
+    position: relative;
+}
+
+
+#promocoes .box-promocao {
+	background-color: #6E3EA4;
+	width: 100%;
+	height: 150px;
+	position: relative;
+	color: #fff;
+	text-align: center;
+
+}
+
+#promocoes .box-promocao.box-1 {
+	font-family: arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 7px;
+}
+
+#promocoes .box-promocao.box-1 p {
+	position: absolute;
+	top: 50px;
+}
+
+#promocoes .box-promocao .text-ate {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: arial;
+	position: absolute;
+	left: 15px;
+	top: 5px;
+}
+
+#promocoes .box-promocao .text-numero {
+	font-size: 120px;
+	font-family: 'OpenSans-Light';
+	position: absolute;
+	top: -10px;
+	left: 15px;
+
+}
+
+#promocoes .box-promocao .text-porcento {
+	font-size: 64px;
+	font-family: 'OpenSans';
+	position: absolute;
+	top: 15px;
+	right: 1px;
+}
+
+#promocoes .box-promocao .text-off {
+	font-size: 42px;
+	font-family: 'OpenSans-Light';
+	position: absolute;
+	top: 78px;
+	right: 3px;
+}
+
+.box-produto-info a {
+	text-decoration: none;
+}
+
+.box-produto-info h3 {
+	font-size: 12px;
+	font-family: arial;
+	color: #666;
+}
+
+.box-produto-info .produto-img {
+	width: 100%;
+
+}
+
+.box-produto-info .text-valor {
+	font-size: 26px;
+	font-weight: bold;
+
+}
+
+.title-default-roxo h2 {
+	color: #5E2799;
+	font-family: 'OpenSans-Light';
+	font-size: 48px;
+	text-transform: uppercase;
+	text-align: center;
+
+}
+
+.title-default-roxo hr {
+	border: #FDE192 solid 8px;
+	width: 200px;
+	margin: 0 auto;
+
 }
