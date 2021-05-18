@@ -1,16 +1,16 @@
 <?php include_once("header.php");?>
 
-<section>
- 	<div class="container" id="destaque-produtos-container" ng-controller="destaque-controller">
+<section ng-controller="destaque-controller">
+ 	<div class="container" id="destaque-produtos-container">
 
  		<div id="destaque-produtos" class="owl-carousel owl-theme">
  			
  			<div class="item" ng-repeat="produto in produtos">
 		
  				<div class="col-sm-6 col-imagem">
- 					
- 					<img src="img/produtos/{{produto.foto_principal}}" alt="{{produto.nome_prod_longo}}">
-
+ 					<a href="produto-{{produto.id_prod}}">
+ 						<img src="img/produtos/{{produto.foto_principal}}" class="imagemproduto" alt="{{produto.nome_prod_longo}}">
+ 					</a>
  				</div>
  				<div class="col-sm-6 col-descricao">
  					<h2>{{produto.nome_prod_longo}}</h2>
@@ -97,73 +97,16 @@
 
 		</div>
 
-		<div class="row row-cols ">
-			
-			<div class="col-md-3">
-				
-				<div class="box-produto-info">
-					
-					<a href="#">
-						<img src="img/produtos/panelas.png" alt="Panelas" class="produto-img">
-						<h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente 5</h3>
-						<div class="estrelas" data-score = "3"></div>
-						<div class="text-qtd-reviews text-arial-cinza">(300)</div>
-						<div class="text-valor text-roxo">R$ 109,90</div>
-						<div class="text-parcelado text-arial-cinza"></div>
-
-					</a>
-
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				
-				<div class="box-produto-info">
-					
-					<a href="#">
-						<img src="img/produtos/panelas.png" alt="Panelas" class="produto-img">
-						<h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente 5</h3>
-						<div class="estrelas" data-score = "5"></div>
-						<div class="text-qtd-reviews text-arial-cinza">(300)</div>
-						<div class="text-valor text-roxo">R$ 109,90</div>
-						<div class="text-parcelado text-arial-cinza"></div>
-
-					</a>
-
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				
-				<div class="box-produto-info">
-					
-					<a href="#">
-						<img src="img/produtos/panelas.png" alt="Panelas" class="produto-img">
-						<h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente 5</h3>
-						<div class="estrelas" data-score = "2.5"></div>
-						<div class="text-qtd-reviews text-arial-cinza">(300)</div>
-						<div class="text-valor text-roxo">R$ 109,90</div>
-						<div class="text-parcelado text-arial-cinza"></div>
-
-					</a>
-
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				
-				<div class="box-produto-info">
-					
-					<a href="#">
-						<img src="img/produtos/panelas.png" alt="Panelas" class="produto-img">
-						<h3>Conjunto de Panelas Tramontina Versalhes Alumínio Antiaderente 5</h3>
-						<div class="estrelas" data-score = "5"></div>
-						<div class="text-qtd-reviews text-arial-cinza">(300)</div>
-						<div class="text-valor text-roxo">R$ 109,90</div>
-						<div class="text-parcelado text-arial-cinza"></div>
+		<div class="row row-cols">
+			<div class="col-md-3" ng-repeat = "produto in buscados">
+				<div class="box-produto-info">	
+					<a href="produto-{{produto.id_prod}}">
+						<img src="img/produtos/{{produto.foto_principal}}" alt="{{produto.nome_prod_longo}}" class="produto-img">
+						<h3>"{{produto.nome_prod_longo}}"</h3>
+						<div class="estrelas" data-score = "{{produto.media}}"></div>
+						<div class="text-qtd-reviews text-arial-cinza">({{produto.total_reviews}})</div>
+						<div class="text-valor text-roxo">R$ {{produto.total}}</div>
+						<div class="text-parcelado text-arial-cinza">{{produto.parcelas}}x de R$ {{produto.parcela}} sem juros</div>
 
 					</a>
 
@@ -177,7 +120,7 @@
 			
 </section>
 
-<?php include_once("footer.php");?>
+<?php include_once("footer2.php");?>
 
 <script>
 angular.module("shop", []).controller("destaque-controller", function($scope, $http){
@@ -187,12 +130,13 @@ angular.module("shop", []).controller("destaque-controller", function($scope, $h
 	var initCarousel = function(){
 
 	$("#destaque-produtos").owlCarousel({
-	 
-	      autoPlay: 5000,
+	 	  autoplay: 5000,
 	      items : 1,
 	      singleItem: true
-	 
 	 });
+
+	var owlDestaque = $('.owl-carousel');
+    owlDestaque.owlCarousel();
 	 
 	 $('#btn-destaque-prev').click(function() {
 	     owlDestaque.trigger('prev.owl.carousel');
@@ -217,20 +161,30 @@ angular.module("shop", []).controller("destaque-controller", function($scope, $h
 
 		});
 
+		var initEstrelas = function(){
+			$('.estrelas').each(function(){
+		  		$(this).raty({
+			  		starHalf    : 'lib/raty/lib/images/star-half.png',                                // The name of the half star image.
+					starOff     : 'lib/raty/lib/images/star-off.png',                                 // Name of the star image off.
+					starOn      : 'lib/raty/lib/images/star-on.png',
+					score		: parseFloat($(this).data("score"))
+			  	});
 
-});
-$(function(){
+  			});
+		}
 
-  	$('.estrelas').each(function(){
+		$http({
+			method: 'GET',
+			url: 'produtos-mais-buscados'
+		}).then(function sucessCallback(response){
 
-  		$(this).raty({
-	  		starHalf    : 'lib/raty/lib/images/star-half.png',                                // The name of the half star image.
-			starOff     : 'lib/raty/lib/images/star-off.png',                                 // Name of the star image off.
-			starOn      : 'lib/raty/lib/images/star-on.png',
-			score		: parseFloat($(this).data("score"))
-	  	});
+		$scope.buscados = response.data;
+		setTimeout(initEstrelas, 1000);
 
-  	});
+		}, function erroCallback(response) {
+
+		});
+
 
 });
 </script>
